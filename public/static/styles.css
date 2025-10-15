@@ -1,0 +1,460 @@
+/**
+ * AuraLang IDE Custom Styles
+ * 
+ * Enhanced styling for the AuraLang development environment
+ */
+
+/* Custom CSS Variables */
+:root {
+  --aura-purple: #8B5CF6;
+  --aura-blue: #3B82F6;
+  --aura-cyan: #06B6D4;
+  --quantum-glow: #A855F7;
+  --neural-green: #10B981;
+  --gradient-primary: linear-gradient(135deg, var(--aura-purple), var(--aura-cyan));
+  --gradient-secondary: linear-gradient(135deg, var(--aura-blue), var(--neural-green));
+}
+
+/* Custom Animations */
+@keyframes quantum-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(5px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes neural-evolution {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes code-typing {
+  from {
+    border-right-color: var(--aura-cyan);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+/* Enhanced Background Gradients */
+.bg-quantum-gradient {
+  background: linear-gradient(45deg, 
+    #1a1a2e 0%, 
+    #16213e 25%, 
+    #0f3460 50%, 
+    #533483 75%, 
+    #8B5CF6 100%);
+  background-size: 400% 400%;
+  animation: neural-evolution 10s ease infinite;
+}
+
+/* Glassmorphism Effects */
+.glassmorphism {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-strong {
+  backdrop-filter: blur(20px) saturate(200%);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Code Editor Enhancements */
+.code-editor {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+  line-height: 1.6;
+  tab-size: 2;
+  caret-color: var(--aura-cyan);
+}
+
+.code-editor:focus {
+  outline: none;
+  box-shadow: 
+    0 0 0 2px var(--aura-purple),
+    inset 0 0 10px rgba(139, 92, 246, 0.1);
+  border-color: var(--aura-purple);
+}
+
+/* AuraLang Syntax Highlighting Simulation */
+.aura-keyword {
+  color: var(--aura-purple);
+  font-weight: 600;
+}
+
+.aura-string {
+  color: var(--neural-green);
+}
+
+.aura-number {
+  color: var(--aura-cyan);
+}
+
+.aura-comment {
+  color: #6B7280;
+  font-style: italic;
+}
+
+.aura-operator {
+  color: #F59E0B;
+}
+
+/* Terminal/Output Panel Styling */
+.terminal-output {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  background: rgba(0, 0, 0, 0.8);
+  color: #00ff88;
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--aura-purple) transparent;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: var(--aura-purple);
+  border-radius: 3px;
+}
+
+/* Status Indicators */
+.status-indicator {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Metric Cards */
+.metric-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+/* Quantum State Visualization */
+.quantum-state {
+  position: relative;
+  background: radial-gradient(circle, 
+    rgba(168, 85, 247, 0.2) 0%, 
+    rgba(168, 85, 247, 0.05) 50%, 
+    transparent 100%);
+}
+
+.quantum-state::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    var(--aura-purple),
+    var(--aura-cyan),
+    var(--neural-green),
+    var(--aura-purple)
+  );
+  padding: 1px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  -webkit-mask-composite: xor;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Neural Network Visualization */
+.neural-connection {
+  position: relative;
+  overflow: hidden;
+}
+
+.neural-connection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: var(--aura-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--aura-cyan);
+  animation: neural-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neural-pulse {
+  0%, 100% {
+    transform: translateX(-5px) translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(calc(100vw)) translateY(-50%) scale(0.5);
+    opacity: 0.3;
+  }
+}
+
+/* Button Enhancements */
+.aura-button {
+  position: relative;
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.aura-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.aura-button:hover::before {
+  transform: translateX(100%);
+}
+
+.aura-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 5px 15px rgba(139, 92, 246, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+.aura-button:active {
+  transform: translateY(0px);
+}
+
+/* Progress Bars */
+.progress-bar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: width 0.5s ease;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Documentation Panel */
+.docs-panel {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.docs-panel h4 {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.docs-panel code {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--aura-cyan);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--aura-purple);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quantum-state::after,
+  .neural-connection::before {
+    animation-duration: 5s; /* Slower animations on mobile */
+  }
+  
+  .metric-card:hover {
+    transform: none; /* Disable hover transforms on mobile */
+  }
+  
+  .code-editor {
+    font-size: 14px; /* Slightly larger font on mobile */
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --aura-purple: #9333ea;
+    --aura-blue: #2563eb;
+    --aura-cyan: #0891b2;
+    --neural-green: #059669;
+  }
+  
+  .glassmorphism {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+  .terminal-output {
+    background: rgba(0, 0, 0, 0.95);
+  }
+  
+  .code-editor {
+    background: rgba(17, 24, 39, 0.9);
+    color: #e5e7eb;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .glassmorphism,
+  .quantum-state,
+  .neural-connection {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .aura-button {
+    background: #6b7280 !important;
+  }
+}
