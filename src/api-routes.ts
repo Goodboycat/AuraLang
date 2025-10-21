@@ -4,16 +4,16 @@
  */
 
 import { Hono } from 'hono'
-import { AuthService } from './services/auth-service'
-import { ProjectService } from './services/project-service'
-import { AIIntelligenceService } from './services/ai-intelligence-service'
-import { VisualizationService } from './services/visualization-service'
-import { MarketplaceService } from './services/marketplace-service'
-import { CloudDeploymentService } from './services/cloud-deployment-service'
-import { MobilePWAService } from './services/mobile-pwa-service'
-import { EnterpriseTeamService } from './services/enterprise-team-service'
-import { AdvancedAIService } from './services/advanced-ai-service'
-import { ExperimentalFutureService } from './services/experimental-future-service'
+import { AuthService } from './services/auth'
+import { ProjectService } from './services/projects'
+import { AIIntelligenceService } from './services/ai'
+import { VisualizationService } from './services/visualization'
+import { MarketplaceService } from './services/marketplace'
+import { CloudDeploymentService } from './services/cloud'
+import { MobilePWAService } from './services/mobile'
+import { EnterpriseTeamService } from './services/enterprise'
+import { AdvancedAIService } from './services/advanced-ai'
+import { ExperimentalFutureService } from './services/experimental'
 
 const api = new Hono()
 
